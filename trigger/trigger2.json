@@ -3,17 +3,7 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Stopped",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "paramds",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"pipelinefilename": "machine-readable-business-employment-data-dec-2024-quarter.csv"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {

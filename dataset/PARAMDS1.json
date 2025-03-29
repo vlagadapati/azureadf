@@ -1,0 +1,34 @@
+{
+	"name": "PARAMDS1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "PARAMLS1",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"dbname": {
+					"value": "@dataset().DBNAME",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"DBNAME": {
+				"type": "string"
+			},
+			"TABLENAME": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().TABLENAME",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

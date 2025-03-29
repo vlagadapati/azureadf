@@ -1,0 +1,87 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "testdatafactory10mar"
+		},
+		"AzureSqlDB_password": {
+			"value": ""
+		},
+		"AzureSqlDatabaseforsalesdata_password": {
+			"value": ""
+		},
+		"PARAMLS1_password": {
+			"value": ""
+		},
+		"linkservice_manually_storageaccount_accountKey": {
+			"value": ""
+		},
+		"testAzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDB_properties_typeProperties_server": {
+			"value": "devsqlserver0803.database.windows.net"
+		},
+		"AzureSqlDB_properties_typeProperties_database": {
+			"value": "testdb"
+		},
+		"AzureSqlDB_properties_typeProperties_userName": {
+			"value": "venkat"
+		},
+		"AzureSqlDatabaseforsalesdata_properties_typeProperties_server": {
+			"value": "devsqlserver0803.database.windows.net"
+		},
+		"AzureSqlDatabaseforsalesdata_properties_typeProperties_database": {
+			"value": "assignmentdb"
+		},
+		"AzureSqlDatabaseforsalesdata_properties_typeProperties_userName": {
+			"value": "venkat"
+		},
+		"PARAMLS1_properties_typeProperties_server": {
+			"value": "devsqlserver0803.database.windows.net"
+		},
+		"PARAMLS1_properties_typeProperties_database": {
+			"value": "@{linkedService().dbname}"
+		},
+		"PARAMLS1_properties_typeProperties_userName": {
+			"value": "venkat"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://reqres.in/api/users"
+		},
+		"linkservice_manually_storageaccount_properties_typeProperties_url": {
+			"value": "https://teststorageaccount10mar.dfs.core.windows.net/"
+		},
+		"ls_http_opendata_ecdc_europe_eu_properties_typeProperties_url": {
+			"value": "https://opendata.ecdc.europa.eu"
+		},
+		"pagetest2_properties_typeProperties_url": {
+			"value": "https://reqres.in/api/users"
+		},
+		"testAzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://teststorageaccount10mar.dfs.core.windows.net/"
+		},
+		"trigger10am_properties_pipeline2_parameters_DBNAME": {
+			"value": "devsqldb"
+		},
+		"trigger10am_properties_pipeline2_parameters_TABLENAME": {
+			"value": "Employee"
+		},
+		"trigger2_properties_paramds_parameters_pipelinefilename": {
+			"value": "machine-readable-business-employment-data-dec-2024-quarter.csv"
+		},
+		"trigger7am_properties_pipeline2_parameters_DBNAME": {
+			"value": "devsqldb"
+		},
+		"trigger7am_properties_pipeline2_parameters_TABLENAME": {
+			"value": "Employee"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

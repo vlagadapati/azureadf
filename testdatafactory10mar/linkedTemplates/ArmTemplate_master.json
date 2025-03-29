@@ -1,0 +1,250 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "testdatafactory10mar"
+		},
+		"AzureSqlDB_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDB'"
+		},
+		"AzureSqlDatabaseforsalesdata_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabaseforsalesdata'"
+		},
+		"PARAMLS1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'PARAMLS1'"
+		},
+		"linkservice_manually_storageaccount_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'linkservice_manually_storageaccount'"
+		},
+		"testAzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'testAzureDataLakeStorage1'"
+		},
+		"AzureSqlDB_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "devsqlserver0803.database.windows.net"
+		},
+		"AzureSqlDB_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "testdb"
+		},
+		"AzureSqlDB_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "venkat"
+		},
+		"AzureSqlDatabaseforsalesdata_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "devsqlserver0803.database.windows.net"
+		},
+		"AzureSqlDatabaseforsalesdata_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "assignmentdb"
+		},
+		"AzureSqlDatabaseforsalesdata_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "venkat"
+		},
+		"PARAMLS1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "devsqlserver0803.database.windows.net"
+		},
+		"PARAMLS1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "@{linkedService().dbname}"
+		},
+		"PARAMLS1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "venkat"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://reqres.in/api/users"
+		},
+		"linkservice_manually_storageaccount_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://teststorageaccount10mar.dfs.core.windows.net/"
+		},
+		"ls_http_opendata_ecdc_europe_eu_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://opendata.ecdc.europa.eu"
+		},
+		"pagetest2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://reqres.in/api/users"
+		},
+		"testAzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://teststorageaccount10mar.dfs.core.windows.net/"
+		},
+		"trigger10am_properties_pipeline2_parameters_DBNAME": {
+			"type": "string",
+			"defaultValue": "devsqldb"
+		},
+		"trigger10am_properties_pipeline2_parameters_TABLENAME": {
+			"type": "string",
+			"defaultValue": "Employee"
+		},
+		"trigger2_properties_paramds_parameters_pipelinefilename": {
+			"type": "string",
+			"defaultValue": "machine-readable-business-employment-data-dec-2024-quarter.csv"
+		},
+		"trigger7am_properties_pipeline2_parameters_DBNAME": {
+			"type": "string",
+			"defaultValue": "devsqldb"
+		},
+		"trigger7am_properties_pipeline2_parameters_TABLENAME": {
+			"type": "string",
+			"defaultValue": "Employee"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "testdatafactory10mar_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureSqlDB_password": {
+						"value": "[parameters('AzureSqlDB_password')]"
+					},
+					"AzureSqlDatabaseforsalesdata_password": {
+						"value": "[parameters('AzureSqlDatabaseforsalesdata_password')]"
+					},
+					"PARAMLS1_password": {
+						"value": "[parameters('PARAMLS1_password')]"
+					},
+					"linkservice_manually_storageaccount_accountKey": {
+						"value": "[parameters('linkservice_manually_storageaccount_accountKey')]"
+					},
+					"testAzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('testAzureDataLakeStorage1_accountKey')]"
+					},
+					"AzureSqlDB_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDB_properties_typeProperties_server')]"
+					},
+					"AzureSqlDB_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDB_properties_typeProperties_database')]"
+					},
+					"AzureSqlDB_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDB_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabaseforsalesdata_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabaseforsalesdata_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabaseforsalesdata_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabaseforsalesdata_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabaseforsalesdata_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabaseforsalesdata_properties_typeProperties_userName')]"
+					},
+					"PARAMLS1_properties_typeProperties_server": {
+						"value": "[parameters('PARAMLS1_properties_typeProperties_server')]"
+					},
+					"PARAMLS1_properties_typeProperties_database": {
+						"value": "[parameters('PARAMLS1_properties_typeProperties_database')]"
+					},
+					"PARAMLS1_properties_typeProperties_userName": {
+						"value": "[parameters('PARAMLS1_properties_typeProperties_userName')]"
+					},
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"linkservice_manually_storageaccount_properties_typeProperties_url": {
+						"value": "[parameters('linkservice_manually_storageaccount_properties_typeProperties_url')]"
+					},
+					"ls_http_opendata_ecdc_europe_eu_properties_typeProperties_url": {
+						"value": "[parameters('ls_http_opendata_ecdc_europe_eu_properties_typeProperties_url')]"
+					},
+					"pagetest2_properties_typeProperties_url": {
+						"value": "[parameters('pagetest2_properties_typeProperties_url')]"
+					},
+					"testAzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('testAzureDataLakeStorage1_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "testdatafactory10mar_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'testdatafactory10mar_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "testdatafactory10mar_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"trigger10am_properties_pipeline2_parameters_DBNAME": {
+						"value": "[parameters('trigger10am_properties_pipeline2_parameters_DBNAME')]"
+					},
+					"trigger10am_properties_pipeline2_parameters_TABLENAME": {
+						"value": "[parameters('trigger10am_properties_pipeline2_parameters_TABLENAME')]"
+					},
+					"trigger2_properties_paramds_parameters_pipelinefilename": {
+						"value": "[parameters('trigger2_properties_paramds_parameters_pipelinefilename')]"
+					},
+					"trigger7am_properties_pipeline2_parameters_DBNAME": {
+						"value": "[parameters('trigger7am_properties_pipeline2_parameters_DBNAME')]"
+					},
+					"trigger7am_properties_pipeline2_parameters_TABLENAME": {
+						"value": "[parameters('trigger7am_properties_pipeline2_parameters_TABLENAME')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'testdatafactory10mar_ArmTemplate_1')]"
+			]
+		}
+	]
+}
